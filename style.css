@@ -1043,9 +1043,19 @@ body::after {
   }
 
   .btn-yt {
-    padding: 6px 12px;
-    font-size: 0.78rem;
-    gap: 6px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+  }
+
+  .btn-yt span {
+    display: none;
   }
 
   /* Hero Section no celular */
