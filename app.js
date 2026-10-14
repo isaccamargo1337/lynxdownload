@@ -265,6 +265,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Placeholder inteligente para celular (sem Ctrl+K e mais curto)
+  function updateSearchPlaceholder() {
+    if (window.innerWidth <= 768) {
+      searchInput.placeholder = "Pesquisar arquivos ou packs...";
+    } else {
+      searchInput.placeholder = "Pesquisar por tutorial, programa, pack ou plugin... (Ctrl + K)";
+    }
+  }
+  updateSearchPlaceholder();
+  window.addEventListener("resize", updateSearchPlaceholder);
+
   /**
    * Função auxiliar para evitar XSS
    */
