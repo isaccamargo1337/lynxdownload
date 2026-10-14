@@ -994,39 +994,293 @@ body::after {
    RESPONSIVIDADE
    =================================================================== */
 
+/* ===================================================================
+   RESPONSIVIDADE E OTIMIZAÇÃO PARA CELULAR (MOBILE)
+   =================================================================== */
+
 @media (max-width: 768px) {
+  /* Espaçamento geral do container no celular */
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Cabeçalho compacto */
   .header-container {
-    height: 64px;
+    height: 58px;
   }
-  
+
+  .brand {
+    font-size: 1.25rem;
+    gap: 8px;
+  }
+
+  .brand-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.95rem;
+  }
+
+  /* Esconde a tag "Downloads" ao lado da logo para não apertar no celular */
+  .brand-badge {
+    display: none;
+  }
+
   .nav-links {
-    gap: 12px;
+    gap: 10px;
   }
-  
+
+  .nav-link {
+    font-size: 0.85rem;
+    padding: 6px;
+  }
+
   .nav-link span {
     display: none;
   }
-  
+
+  .nav-link i {
+    font-size: 1.1rem;
+  }
+
+  .btn-yt {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    gap: 6px;
+  }
+
+  /* Hero Section no celular */
   .hero {
-    padding: 40px 0 25px;
+    padding: 24px 0 18px;
   }
-  
+
+  .hero-pill {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    margin-bottom: 12px;
+  }
+
   .hero-title {
-    font-size: 1.9rem;
+    font-size: clamp(1.4rem, 6.2vw, 1.85rem);
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    margin-bottom: 22px;
   }
-  
-  .hero-subtitle {
+
+  /* Barra de pesquisa */
+  .search-section {
+    margin-bottom: 24px;
+  }
+
+  .search-box {
+    padding: 4px 10px 4px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  .search-icon {
+    font-size: 1rem;
+    margin-right: 8px;
+  }
+
+  .search-input {
+    font-size: 0.92rem;
+    padding: 8px 0;
+  }
+
+  /* Categorias em carrossel horizontal deslizável com o dedo */
+  .categories-wrapper {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 4px 2px 10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .categories-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cat-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+  }
+
+  /* Banners de vantagens em grade 2x2 compacta */
+  .features-banner {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .feature-box {
+    padding: 12px;
+    gap: 10px;
+    border-radius: var(--radius-sm);
+  }
+
+  .feature-icon {
+    width: 34px;
+    height: 34px;
     font-size: 0.95rem;
+    border-radius: 6px;
   }
-  
+
+  .feature-info h4 {
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+
+  .feature-info p {
+    font-size: 0.68rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Grid de downloads */
+  .section-header {
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: 1.15rem;
+  }
+
+  .results-count {
+    font-size: 0.8rem;
+  }
+
   .downloads-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 16px;
+    margin-bottom: 40px;
   }
-  
+
+  .download-card {
+    border-radius: var(--radius-md);
+  }
+
+  .card-content {
+    padding: 16px;
+  }
+
+  .card-title {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  .card-desc {
+    font-size: 0.82rem;
+    margin-bottom: 12px;
+    -webkit-line-clamp: 2;
+  }
+
+  .card-meta {
+    padding: 8px 0;
+    margin-bottom: 12px;
+    font-size: 0.75rem;
+  }
+
+  .btn-download-primary {
+    padding: 12px 16px;
+    font-size: 0.92rem;
+    min-height: 48px;
+    border-radius: var(--radius-sm);
+  }
+
+  .card-actions-sub {
+    gap: 6px;
+  }
+
+  .btn-card-sub {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    min-height: 42px;
+  }
+
+  /* Seção FAQ */
+  .faq-section {
+    padding: 20px 16px;
+    margin-bottom: 40px;
+    border-radius: var(--radius-md);
+  }
+
+  .faq-header h3 {
+    font-size: 1.15rem;
+  }
+
+  .faq-header p {
+    font-size: 0.82rem;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .faq-item {
+    padding: 14px;
+    border-radius: var(--radius-sm);
+  }
+
+  .faq-item h5 {
+    font-size: 0.92rem;
+  }
+
+  .faq-item p {
+    font-size: 0.82rem;
+  }
+
+  /* Rodapé */
+  .footer {
+    padding: 30px 0 20px;
+    margin-top: 20px;
+  }
+
   .footer-top {
     flex-direction: column;
     text-align: center;
     align-items: center;
+    gap: 18px;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .social-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1.05rem;
+  }
+
+  /* Toast notification no celular */
+  .toast {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    justify-content: center;
+    font-size: 0.84rem;
+    padding: 10px 16px;
+  }
+}
+
+/* Ajustes em dispositivos touchscreen para evitar hover preso */
+@media (hover: none) {
+  .download-card:hover {
+    transform: none;
+  }
+  .download-card:active {
+    transform: scale(0.99);
+  }
+  .btn-download-primary:active {
+    transform: scale(0.97);
   }
 }
