@@ -278,7 +278,35 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/'/g, "&#039;");
   }
 
+  /**
+   * Partículas flutuantes roxas no fundo
+   */
+  function createFloatingParticles() {
+    const bg = document.getElementById("particles-bg");
+    if (!bg) return;
+
+    const count = 18;
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement("div");
+      p.className = "particle";
+
+      const size = Math.random() * 5 + 3; // 3px a 8px
+      const left = Math.random() * 100; // 0% a 100%
+      const duration = Math.random() * 12 + 10; // 10s a 22s
+      const delay = Math.random() * 15; // 0s a 15s
+
+      p.style.width = `${size}px`;
+      p.style.height = `${size}px`;
+      p.style.left = `${left}%`;
+      p.style.animationDuration = `${duration}s`;
+      p.style.animationDelay = `-${delay}s`;
+
+      bg.appendChild(p);
+    }
+  }
+
   // Inicialização
+  createFloatingParticles();
   renderCategories();
   renderDownloads();
 });
