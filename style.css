@@ -46,57 +46,70 @@ html {
 }
 
 body {
-  background-color: var(--bg-main);
+  background-color: #08080c;
   color: var(--text-primary);
   font-family: var(--font-sans);
   line-height: 1.6;
   min-height: 100vh;
+  width: 100%;
   overflow-x: hidden;
   position: relative;
 }
 
-/* ===== FUNDO ANIMADO COM MÚLTIPLAS CAMADAS ===== */
+/* ===== FUNDO 100% RESPONSIVO DE PONTA A PONTA ===== */
 
-/* Camada 1: Grid sutil de quadradinhos (efeito tech) */
+/* Camada 1: Grid tecnológico cobrindo toda a tela */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
   background-image: 
-    linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(139, 92, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Camada 2: Brilho roxo ambiente no topo */
+/* Camada 2: Luzes roxas difusas cobrindo toda a largura (sem bordas pretas laterais) */
 body::after {
   content: "";
   position: fixed;
-  top: -300px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1100px;
-  height: 800px;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
   background: 
-    radial-gradient(ellipse at 30% 50%, rgba(139, 92, 246, 0.2) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+    /* Luz principal no topo centro */
+    radial-gradient(circle 700px at 50% 0%, rgba(139, 92, 246, 0.22) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 80%),
+    /* Luzes suaves nas laterais para preencher monitores largos sem borda preta */
+    radial-gradient(circle 600px at 0% 25%, rgba(139, 92, 246, 0.1) 0%, transparent 65%),
+    radial-gradient(circle 600px at 100% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 65%),
+    /* Luz suave no rodapé */
+    radial-gradient(circle 800px at 50% 100%, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
-  animation: ambientPulse 8s ease-in-out infinite alternate;
+  animation: ambientGlow 10s ease-in-out infinite alternate;
 }
 
-@keyframes ambientPulse {
-  0%   { opacity: 0.7; transform: translateX(-50%) scale(1); }
-  100% { opacity: 1;   transform: translateX(-50%) scale(1.05); }
+@keyframes ambientGlow {
+  0% {
+    opacity: 0.85;
+    filter: brightness(0.95);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1.1);
+  }
 }
 
 /* Container de partículas flutuantes (injetado pelo JS) */
 #particles-bg {
   position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
